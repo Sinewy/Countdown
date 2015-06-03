@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/flipclock.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/flipclock.js"></script>
+    <script type="text/javascript" src="js/mainScript.js"></script>
+</head>
+<body>
+
+<div class="bgSiol">
+
+    <div class="counter">
+        <div class="overlay">
+            <div class="title"></div>
+            <div class="clock left"></div>
+            <div class="infoBar">
+                <div class="cdays left">dni</div>
+                <div class="chours left">ur</div>
+                <div class="cminutes left">min</div>
+                <div class="cseconds left">sek</div>
+            </div>
+            <div class="more left">Več &#10140;</div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        var clock;
+        clock = $('.clock').FlipClock({
+            clockFace: 'DailyCounter',
+            autoStart: false,
+            language: 'sl',
+            defaultLanguage: 'sl',
+            showSeconds: true
+        });
+
+        $.getJSON("data.json", function(data) {
+            console.log(data.day);
+            var untilDate = new Date(data.year, data.month-1, data.day, data.hour, data.minutes);
+            var dateNow = Date.now();
+            var secondsUntil = Math.abs((untilDate.getTime() - dateNow)/1000);
+
+            $(".title").html(data.title);
+
+            clock.setTime(secondsUntil);
+            clock.setCountdown(true);
+            clock.start();
+
+            $(".counter").css("cursor", "pointer");
+            $(".counter").click(function() {
+                window.location = data.link;
+            });
+
+        });
+
+
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
