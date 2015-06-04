@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Contdown to...</title>
     <link rel="stylesheet" type="text/css" href="css/flipclock.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -42,8 +42,11 @@
         });
 
         $.getJSON("data.json", function(data) {
+
             console.log(data.day);
-            var untilDate = new Date(data.year, data.month-1, data.day, data.hour, data.minutes);
+
+//            var untilDate = new Date(data.year, data.month-1, data.day, data.hour, data.minutes);
+            var untilDate = new Date(data.year, data.month, data.day, data.hour, data.minutes);
             var dateNow = Date.now();
             var secondsUntil = Math.abs((untilDate.getTime() - dateNow)/1000);
 
@@ -53,9 +56,11 @@
             clock.setCountdown(true);
             clock.start();
 
+            $("div.counter").css("background", "url('" + data.bgPhoto +"') no-repeat");
+
             $(".counter").css("cursor", "pointer");
             $(".counter").click(function() {
-                window.location = data.link;
+                window.parent.location = data.link;
             });
 
         });

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FancyCMS for counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.simple-dtpicker.js"></script>
+    <link type="text/css" href="css/jquery.simple-dtpicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/cmsScript.js"></script>
+
+    <style type="text/css">
+        body { background-color: #fefefe; padding-left: 2%; padding-bottom: 100px; color: #101010; }
+        footer{ font-size:small;position:fixed;right:5px;bottom:5px; }
+        a:link, a:visited  { color: #0000ee; }
+        pre{ background-color: #eeeeee; margin-left: 1%; margin-right: 2%; padding: 2% 2% 2% 5%; }
+        p { font-size: 0.9rem; }
+        ul { font-size: 0.9rem; }
+        hr { border: 2px solid #eeeeee; margin: 2% 0% 2% -3%; }
+        h3 { border-bottom: 2px solid #eeeeee; margin: 2rem 0 2rem -1%; padding-left: 1%; padding-bottom: 0.1em; }
+        h4 { border-bottom: 1px solid #eeeeee; margin-top: 10px; margin-left: -1%; padding-left: 1%; padding-bottom: 0.1em; }
+
+        .datepicker {
+            margin-bottom: 80px;
+            transform-origin: 0 0;
+            transform: scale(1.35);
+            -ms-transform: scale(1.35);
+            -webkit-transform-origin: 0 0;
+            -webkit-transform: scale(1.35);
+            -o-transform-origin: 0 0;
+            -o-transform: scale(1.35);
+            -moz-transform-origin: 0 0;
+            -moz-transform: scale(1.35);
+        }
+
+        input[type="text"],
+        input[type="button"] {
+            padding: 13px 11px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .error {
+            color: darkred;
+            font-style: italic;
+        }
+
+        .errorInput {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<article>
+
+    <h1>Counter FancyCMS</h1>
+
+    <section class="cmsForm">
+
+        <h3>Enter counter details:</h3>
+
+        <h4>Choose date and time</h4>
+        <input type="hidden" name="datePicker" id="datePicker" value="" size="40" disabled>
+
+        <h4>Enter title/heading:</h4>
+        <input type="text" name="title" id="counterTitle" size="50" placeholder="title: shorter than 30 characters">
+        <div id="titleError" class="error hidden">Title must NOT be empty and shorter than 30 characters.</div>
+
+        <h4>Enter link:</h4>
+        <input type="text" name="link" id="link" size="70" placeholder="for example: http://www.siol.net">
+
+        <h4>Choose background photo(link):</h4>
+        <input type="text" name="photoLink" id="photoLink" size="70" placeholder="link to background image - recommended size is 314px X 125px">
+        <div id="photoError" class="error hidden">Please enter link for background image. It must NOT be empty.</div>
+
+        <br><br>
+        <input type="button" name="save" id="saveBtn" value="Save data">
+
+    </section>
+
+</article>
+
+</body>
+</html>

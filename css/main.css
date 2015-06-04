@@ -19,7 +19,6 @@ div.counter {
     position: relative;
     border: #cccccc solid 1px;
     background: cornflowerblue;
-    background: url("../images/backgroundPic.png") no-repeat;
     width: 312px;
     height: 125px;
     text-align: center;
@@ -93,4 +92,8 @@ div.counter {
     font-weight: bold;
     font-size: 12px;
     margin: 45px 0 0 260px;
+}
+
+.hidden {
+    display: none;
 }
